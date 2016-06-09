@@ -1,23 +1,32 @@
 package main
 
 /*
-extern void Print(int i);
+#include <stdio.h>
+extern void myPrint(int i);
 
-void foo(void) {
-	int i;
-	for (i=0;i<10;i++) {
-		Print(i);
+static inline void fibonacci(int m) {
+	int i, n, f = 0 , s = 1;
+	for (i=0;i<m;i++) {
+		if ( i <= 1) {
+			n = i;
+		} else {
+			n = f + s;
+			f = s;
+			s = n;
+		}
+		myPrint(n);
+
 	}
 }
 */
 import "C"
 import "fmt"
 
-//export Print
-func Print(i C.int) {
+//export myPrint
+func myPrint(i C.int) {
 	fmt.Println(uint32(i))
 }
 
 func main() {
-	C.foo()
+	C.fibonacci(10)
 }
