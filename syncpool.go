@@ -16,12 +16,13 @@ func main() {
 			return &Contact{}
 		},
 	}
+	func() {
+		c := contactPool.Get().(*Contact)
+		defer contactPool.Put(c)
 
-	c := contactPool.Get().(*Contact)
-	defer contactPool.Put(c)
+		c.Name = "Mehrdad"
+		c.Age = 40
 
-	c.Name = "Mehrdad"
-	c.Age = 40
-
-	fmt.Println(c.Name)
+		fmt.Println(c.Name)
+	}()
 }
