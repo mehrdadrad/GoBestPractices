@@ -38,7 +38,7 @@ func readFile03() {
 	for {
 		buff := make([]byte, buffSize)
 		n, err := file.Read(buff)
-		if err != nil && n == 0 {
+		if err != nil || n == 0 {
 			break
 		} else {
 			print(string(buff))
