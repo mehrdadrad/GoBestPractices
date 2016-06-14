@@ -1,0 +1,7 @@
+Go originated as an experiment by Google engineers Robert Griesemer, Rob Pike, and Ken Thompson to design a new programming language that would resolve common criticisms of other languages while maintaining their positive characteristics.The new language was to:
+
+- be statically typed, scalable to large systems (as Java and C++); 
+- be productive and readable, without too many mandatory keywords and repetition ("light on the page" like dynamic languages);
+- not require tooling, but support it well, support networking and multiprocessing. 
+
+In later interviews, all three of the language designers cited their shared dislike of C++'s complexity as a primary motivation for designing a new language.
