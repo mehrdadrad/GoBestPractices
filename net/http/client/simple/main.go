@@ -13,5 +13,5 @@ func main() {
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
-	log.Println("result:\n %s", string(body))
+	println("result:\n %s", string(body))
 }
