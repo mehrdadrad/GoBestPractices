@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+	"reflect"
+	"strings"
 )
 
 type Config struct {
@@ -21,5 +23,16 @@ func (cfg *Config) LoadJSON(filename string) {
 }
 
 func (cfg *Config) Get(keys string) interface{} {
-	return cfg.Root[keys]
+	var v interface{}
+	for _, k := range strings.Split(keys, ".") {
+		if v != nil {
+			a := reflect.ValueOf(v)
+			i := a.Interface()
+			b := i.(map[string]interface{})
+			v = b[k]
+		} else {
+			v = cfg.Root[k]
+		}
+	}
+	return v
 }
