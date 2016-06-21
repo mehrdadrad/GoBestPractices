@@ -1,9 +1,12 @@
 package main
 
 import (
-	"github.com/mehrdadrad/GoBestPractices/conf"
+	"fmt"
+	"github.com/mehrdadrad/GoBestPractices/conf/config"
 )
 
 func main() {
-	cfg := config.Load("config.json")
+	var cfg config.Config
+	cfg.LoadJSON("config.json")
+	fmt.Println(cfg.Get("maxProc"))
 }
