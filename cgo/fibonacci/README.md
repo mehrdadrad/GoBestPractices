@@ -1,1 +1,1 @@
-# Call C code in Go
+# Fibonacci C function in Go
