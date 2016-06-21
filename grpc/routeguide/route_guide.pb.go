@@ -62,7 +62,7 @@ const _ = grpc.SupportPackageIsVersion3
 // Client API for Jaguar service
 
 type JaguarClient interface {
-	// Sends a greeting
+	// Sends random number request
 	GetRand(ctx context.Context, in *RandRequest, opts ...grpc.CallOption) (*RandResponse, error)
 }
 
@@ -85,7 +85,7 @@ func (c *jaguarClient) GetRand(ctx context.Context, in *RandRequest, opts ...grp
 
 // Server API for Jaguar service
 type JaguarServer interface {
-	// Sends a greeting
+	// Sends a random number response
 	GetRand(context.Context, *RandRequest) (*RandResponse, error)
 }
 
